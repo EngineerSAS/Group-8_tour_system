@@ -1,0 +1,69 @@
+ScreenManager:
+    MDScreen:
+        name: "welcome"
+        id: welcome
+        Image:
+            source: 'afitlogo.png'
+            allow_stretch: False
+            keep_ratio: False
+            MDBoxLayout:
+                orientation: 'vertical'
+                size: root.width, root.height
+                MDBoxLayout:
+                    adaptive_height: True
+                    MDLabel:
+                        text: "AFIT TOURS"
+                        #f"[color=#000000BB][/color]"
+                        color: app.theme_cls.primary_color
+                        halign: 'center'
+                        valign: 'center'
+                        #pos_hint: {"center_y": .5, "center_x": .5}
+                        markup: True
+                        font_style: 'H3'
+                RelativeLayout:
+                    size_hint_y: .4
+                    MDTextButton:
+                        text: "GET STARTED"
+                        color: app.theme_cls.primary_color
+                        pos_hint: {"center_y": .2, "center_x": .5}
+                        on_release: app.root.current = 'login'
+                           
+    
+
+    MDScreen:
+        name: 'login'
+        id: login
+        Image:
+            source: 'afitlogo.png'
+            allow_stretch: False
+            keep_ratio: False
+
+            MDBoxLayout:
+                orientation: 'vertical'
+                size: root.width, root.height
+
+                RelativeLayout:
+                    size_hint_y: .8
+
+                    MDGridLayout:
+                        rows: 3
+                        padding: '5pd'
+                        spacing: '5dp'
+                        MDFillRoundFlatButton:
+                            text: 'HELLO'
+                            size_hint: None, None
+                            size: ((self.width/2) - 10), ((self.height/2) - 10)
+                        MDFillRoundFlatButton:
+                            text: 'HELLO'
+                            size_hint: None, None
+                            size: ((self.width/2) - 10), ((self.height/2) - 10)
+                        MDFillRoundFlatButton:
+                            text: 'HELLO'
+                            size_hint: None, None
+                            size: ((self.width/2) - 10), ((self.height/2) - 10)
+                        MDFillRoundFlatButton:
+                            text: 'HELLO'
+                            size_hint: None, None
+                            size: ((self.width/2) - 10), ((self.height/2) - 10)
+
+    

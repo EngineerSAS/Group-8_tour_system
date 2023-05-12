@@ -1,0 +1,480 @@
+Manager:
+    MDScreen:
+        name: "welcome"
+        id: welcome
+        MDBoxLayout:
+            orientation: 'vertical'
+            MDBoxLayout:
+                orientation: 'vertical'
+                size: root.width, root.height
+                MDBoxLayout:
+                    adaptive_height: True
+                    MDLabel:
+                        text: "AFIT TOURS"
+                        #f"[color=#000000BB][/color]"
+                        color: app.theme_cls.primary_color
+                        halign: 'center'
+                        valign: 'center'
+                        #pos_hint: {"center_y": .5, "center_x": .5}
+                        markup: True
+                        font_style: 'H3'
+                RelativeLayout:
+                    size_hint_y: .4
+                    MDTextButton:
+                        text: "GET STARTED"
+                        color: app.theme_cls.primary_color
+                        pos_hint: {"center_y": .2, "center_x": .5}
+                        on_release: app.root.current = 'login'
+                           
+    
+
+    MDScreen:
+        name: 'login'
+        id: login
+        MDBoxLayout:
+            orientation: 'vertical'
+            spacing:'5dp'
+            size: root.width, root.height/4
+            MDBoxLayout:
+                size_hint: 1, .2
+                #size: root.width, root.height/4
+                Image:
+                    source: 'afitlogo1.png'
+                    allow_stretch: False
+                    keep_ratio: False
+                    size_hint: .4, .5
+                MDLabel:
+                    text: f"[color=#82cdeb]AFIT TOURS[/color]"
+                    #color: app.theme_cls.primary_color
+                    halign: 'center'
+                    valign: 'center'
+                    markup: True
+                    font_style: 'H5'
+                    size_hint:.6, .5
+
+            MDBoxLayout:
+                size_hint: 1, .7
+                MDGridLayout:
+                    cols: 2
+                    Button:
+                        text:'Departments'
+                        size_hint:.4, .4
+                        markup: True
+                        font_style: "Button"
+                        on_release: app.root.current = 'departments_1'
+                    Button:
+                        text:'Offices'
+                        size_hint:.4, .4
+                        markup: True
+                        font_style: "Button"
+                        on_release: root.show_popup('error')
+                    Button:
+                        text:'Places'
+                        size_hint:.4, .4
+                        markup: True
+                        font_style: "Button"
+                        on_release: app.root.current = 'Places'
+                    Button:
+                        text:'Our Guides'
+                        size_hint:.4, .4
+                        markup: True
+                        font_style: "Button"
+                        on_release: root.show_popup('error')
+                    Button:
+                        text:'Visiting'
+                        size_hint:.4, .4
+                        markup: True
+                        font_style: "Button"
+                        on_press: root.show_popup('visiting')
+                    Button:
+                        text:'Help'
+                        size_hint:.4, .4
+                        markup: True
+                        font_style: "Button"
+                        on_press: root.show_popup('help')
+            MDBoxLayout:
+                size_hint: 1, .1
+                RelativeLayout:
+                    size_hint_y: .4
+                    MDTextButton:
+                        text: "VISIT HOME"
+                        color: app.theme_cls.primary_color
+                        pos_hint: {"center_y": .5, "center_x": .5}
+                        on_release: app.root.current = 'welcome'
+    
+    MDScreen:
+        name: 'departments_1'
+        id: departments_1
+        MDBoxLayout:
+            orientation: 'vertical'   
+            size_hint: 1, 1
+            #width: root.width
+            #height: self.height
+            MDBoxLayout:
+                size_hint: None, .1
+                width: root.width
+                #height: root.height/
+                spacing: dp(5)
+                padding: dp(5)
+                Button:
+                    text: 'PREV'
+                    on_release: app.root.current = 'login'
+                Button:
+                    text: 'HOME'
+                    on_release: app.root.current = 'login'
+                Button:
+                    text: 'NEXT'
+                    on_release: app.root.current = 'departments_2'
+            Image:
+                source: 'assets/images/facltyofscience.jpg'
+                allow_stretch: True
+                keep_ratio: False
+                size_hint:None, .3
+                width: root.width
+                #height: root.height/3.5
+            MDTextButton:
+                text: "FACULTY OF SCIENCE >> VISIT"
+                color: app.theme_cls.primary_color
+                pos_hint: {"center_y": .5, "center_x": .5}
+                on_release: root.show_popup('error')
+            Image:
+                source: 'assets/images/comp_sci.jpg'
+                allow_stretch: True
+                keep_ratio: False
+                size_hint:None, .3
+                width: root.width
+                #height: root.height/3.5
+            MDTextButton:
+                text: "COMPUTER SCIENCE >> VISIT"
+                color: app.theme_cls.primary_color
+                pos_hint: {"center_y": .5, "center_x": .5}
+                #on_release: app.root.current = 'login'
+                on_release: root.show_popup('error')
+            Image:
+                source: 'assets/images/faculty_of_comp.jpg'
+                allow_stretch: True
+                keep_ratio: False
+                size_hint:None, .3
+                width: root.width
+                #height: root.height/3.5
+            MDTextButton:
+                text: "FACULTY OF COMPUTING"
+                color: app.theme_cls.primary_color
+                pos_hint: {"center_y": .5, "center_x": .5}
+                #on_release: app.root.current = 'login'
+                on_release: root.show_popup('error')
+
+    MDScreen:
+        name: 'departments_2'
+        id: departments_2
+        MDBoxLayout:
+            orientation: 'vertical'   
+            size_hint: 1, 1
+            MDBoxLayout:
+                size_hint: None, .1
+                width: root.width
+                spacing: dp(5)
+                padding: dp(5)
+                Button:
+                    text: 'PREV'
+                    on_release: app.root.current = 'departments_1'
+                Button:
+                    text: 'HOME'
+                    on_release: app.root.current = 'login'
+                Button:
+                    text: 'NEXT'
+                    #on_release: app.root.current = 'login'
+            Image:
+                source: 'assets/images/GSUnit.jpg'
+                allow_stretch: True
+                keep_ratio: False
+                size_hint:None, .3
+                width: root.width
+                #height: root.height/3.5
+            MDTextButton:
+                text: "GENERAL STUDIES UNIT"
+                color: app.theme_cls.primary_color
+                pos_hint: {"center_y": .5, "center_x": .5}
+                #on_release: app.root.current = 'login'
+                on_release: root.show_popup('error')
+            Image:
+                source: 'assets/images/capentryworkshop.jpg'
+                allow_stretch: True
+                keep_ratio: False
+                size_hint:None, .3
+                width: root.width
+                #height: root.height/3.5
+            MDTextButton:
+                text: "CAPENTARY WORKSHOP"
+                color: app.theme_cls.primary_color
+                pos_hint: {"center_y": .5, "center_x": .5}
+                #on_release: app.root.current = 'login'
+                on_release: root.show_popup('error')
+            Image:
+                source: 'assets/images/electworkshop.jpg'
+                allow_stretch: True
+                keep_ratio: False
+                size_hint:None, .3
+                width: root.width
+                #height: root.height/3.5
+            MDTextButton:
+                text: "ELECTRICAL WORKSHOP"
+                color: app.theme_cls.primary_color
+                pos_hint: {"center_y": .5, "center_x": .5}
+                #on_release: app.root.current = 'login'
+                on_release: root.show_popup('error')
+        
+    MDScreen:
+        name: 'Places'
+        id: Places
+        MDBoxLayout:
+            orientation: 'vertical'   
+            size_hint: 1, 1
+            MDBoxLayout:
+                size_hint: None, .1
+                width: root.width
+                spacing: dp(5)
+                padding: dp(5)
+                Button:
+                    text: 'PREV'
+                    on_release: app.root.current = 'Places'
+                Button:
+                    text: 'HOME'
+                    on_release: app.root.current = 'login'
+                Button:
+                    text: 'NEXT'
+                    on_release: app.root.current = 'Places_2'
+            Image:
+                source: 'assets/images/boyshostel.jpg'
+                allow_stretch: True
+                keep_ratio: False
+                size_hint:None, .3
+                width: root.width
+                #height: root.height/3.5
+            MDTextButton:
+                text: "BOYS HOSTEL"
+                color: app.theme_cls.primary_color
+                pos_hint: {"center_y": .5, "center_x": .5}
+                #on_release: app.root.current = 'login'
+                on_release: root.show_popup('error')
+            Image:
+                source: 'assets/images/chessplace.jpg'
+                allow_stretch: True
+                keep_ratio: False
+                size_hint:None, .3
+                width: root.width
+                #height: root.height/3.5
+            MDTextButton:
+                text: "CHESS GROUND"
+                color: app.theme_cls.primary_color
+                pos_hint: {"center_y": .5, "center_x": .5}
+                #on_release: app.root.current = 'login'
+                on_release: root.show_popup('error')
+            Image:
+                source: 'assets/images/sourvenier.jpg'
+                allow_stretch: True
+                keep_ratio: False
+                size_hint:None, .3
+                width: root.width
+                #height: root.height/3.5
+            MDTextButton:
+                text: "SOUVENIER SHOP"
+                color: app.theme_cls.primary_color
+                pos_hint: {"center_y": .5, "center_x": .5}
+                #on_release: app.root.current = 'login'
+                on_release: root.show_popup('error')
+
+    MDScreen:
+        name: 'Places_2'
+        id: Places_2
+        MDBoxLayout:
+            orientation: 'vertical'   
+            size_hint: 1, 1
+            MDBoxLayout:
+                size_hint: None, .1
+                width: root.width
+                spacing: dp(5)
+                padding: dp(5)
+                Button:
+                    text: 'PREV'
+                    on_release: app.root.current = 'Places'
+                Button:
+                    text: 'HOME'
+                    on_release: app.root.current = 'login'
+                Button:
+                    text: 'NEXT'
+                    #on_release: app.root.current = 'Places_2'
+            Image:
+                source: 'assets/images/mosugu.jpg'
+                allow_stretch: True
+                keep_ratio: False
+                size_hint:None, .3
+                width: root.width
+                #height: root.height/3.5
+            MDTextButton:
+                text: "MOSUGU HALL"
+                color: app.theme_cls.primary_color
+                pos_hint: {"center_y": .5, "center_x": .5}
+                #on_release: app.root.current = 'login'
+                on_release: root.show_popup('error')
+            Image:
+                source: 'assets/images/lovegarden.jpg'
+                allow_stretch: True
+                keep_ratio: False
+                size_hint:None, .3
+                width: root.width
+                #height: root.height/3.5
+            MDTextButton:
+                text: "LOVE GARDEN"
+                color: app.theme_cls.primary_color
+                pos_hint: {"center_y": .5, "center_x": .5}
+                #on_release: app.root.current = 'login'
+                on_release: root.show_popup('error')
+            Image:
+                source: 'assets/images/library1.jpg'
+                allow_stretch: True
+                keep_ratio: False
+                size_hint:None, .3
+                width: root.width
+                #height: root.height/3.5
+            MDTextButton:
+                text: "LIBRARY"
+                color: app.theme_cls.primary_color
+                pos_hint: {"center_y": .5, "center_x": .5}
+                #on_release: app.root.current = 'login'
+                on_release: root.show_popup('error')
+
+    
+    MDScreen:
+        name: 'guides'
+        id: guides
+        MDBoxLayout:
+            orientation: 'vertical'   
+            size_hint: 1, 1
+            spacing: dp(10)
+            padding: dp(5)
+            MDBoxLayout:
+                size_hint: None, .3
+                width: root.width
+                spacing: dp(5)
+                padding: dp(5)
+                Button:
+                    text: 'PREV'
+                    on_release: app.root.current = 'Places'
+                Button:
+                    text: 'HOME'
+                    on_release: app.root.current = 'login'
+                Button:
+                    text: 'NEXT'
+                    #on_release: app.root.current = 'Places_2'
+            MDBoxLayout:
+                size_hint: None, .4
+                width: root.width
+
+                Image:
+                    source: 'assets/images/mosugu.jpg'
+                    allow_stretch: True
+                    keep_ratio: False
+                    size_hint:.4, 1
+                    #width: root.width
+                    #height: root.height/3.5
+                MDBoxLayout:
+                    orientation: 'vertical'
+                    size_hint: .6, 1
+                    padding: dp(5)
+                    spacing: dp(5)
+                    MDLabel:
+                        text: 'Name: '
+                        size_hint: 1, .5
+                    MDLabel:
+                        text: 'id: '
+                        size_hint: 1, .5
+            MDBoxLayout:
+                size_hint: None, .4
+                width: root.width
+
+                Image:
+                    source: 'assets/images/mosugu.jpg'
+                    allow_stretch: True
+                    keep_ratio: False
+                    size_hint:.4, 1
+                    #width: root.width
+                    #height: root.height/3.5
+                MDBoxLayout:
+                    orientation: 'vertical'
+                    size_hint: .6, 1
+                    padding: dp(5)
+                    spacing: dp(5)
+                    MDLabel:
+                        text: 'Name: '
+                        size_hint: 1, .5
+                    MDLabel:
+                        text: 'id: '
+                        size_hint: 1, .5
+            MDBoxLayout:
+                size_hint: None, .4
+                width: root.width
+
+                Image:
+                    source: 'assets/images/mosugu.jpg'
+                    allow_stretch: True
+                    keep_ratio: False
+                    size_hint:.4, 1
+                    #width: root.width
+                    #height: root.height/3.5
+                MDBoxLayout:
+                    orientation: 'vertical'
+                    size_hint: .6, 1
+                    padding: dp(5)
+                    spacing: dp(5)
+                    MDLabel:
+                        text: 'Name: '
+                        size_hint: 1, .5
+                    MDLabel:
+                        text: 'id: '
+                        size_hint: 1, .5
+            MDBoxLayout:
+                size_hint: None, .4
+                width: root.width
+
+                Image:
+                    source: 'assets/images/mosugu.jpg'
+                    allow_stretch: True
+                    keep_ratio: False
+                    size_hint:.4, 1
+                    #width: root.width
+                    #height: root.height/3.5
+                MDBoxLayout:
+                    orientation: 'vertical'
+                    size_hint: .6, 1
+                    padding: dp(5)
+                    spacing: dp(5)
+                    MDLabel:
+                        text: 'Name: '
+                        size_hint: 1, .5
+                    MDLabel:
+                        text: 'id: '
+                        size_hint: 1, .5
+            MDBoxLayout:
+                size_hint: None, .4
+                width: root.width
+
+                Image:
+                    source: 'assets/images/mosugu.jpg'
+                    allow_stretch: True
+                    keep_ratio: False
+                    size_hint:.4, 1
+                    #width: root.width
+                    #height: root.height/3.5
+                MDBoxLayout:
+                    orientation: 'vertical'
+                    size_hint: .6, 1
+                    padding: dp(5)
+                    spacing: dp(5)
+                    MDLabel:
+                        text: 'Name: '
+                        size_hint: 1, .5
+                    MDLabel:
+                        text: 'id: '
+                        size_hint: 1, .5
+                    
